@@ -1,0 +1,4 @@
+read
+read
+call greater.fbasm
+write

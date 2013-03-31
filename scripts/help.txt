@@ -1,0 +1,40 @@
+p  = print memory
++N = ++++++++...(N times)
+-N = --------...(N times)
+
+pop					=	<[-]						// [--sp] = 0;
+
+push x				=	[-]+x>						// [sp++] = x;
+
+dup					=	<[->+>+<<]					// [sp+1] = [sp] = [sp]; [sp] = 0;
+						>>[-<<+>>]					// [sp-1] = [sp+1]; [sp+1] = 0; sp++;
+
+pull x				=   <<x [- >>x+ >+< <<x]
+						>>x > [-<<<x+>>>x]			// a kind of dup... pull 0 = dup
+
+move_down x			=   < <x[-]>x [-<x+>x]          // [sp-1-x] = [sp-1]; [sp-1] = 0;
+
+swap				=	<[->+<]						// [sp] = [sp-1]; [sp-1] = 0;
+						<[->+<]						// [sp-1] = [sp-2]; [sp-2] = 0;
+						>>[-<<+>>]					// [sp-2] = [sp]; [sp] = 0;
+
+addc x				=	<+x>						// [sp-1] += x;
+
+subc x				=	<-x>						// [sp-1] -= x;
+
+mulc x				=	dup <[-<+x->]				// [sp-1] *= x;
+													// (uses [sp] and [sp+1] because of dup!)
+
+add					=	<[-<+>]						// [sp-2] += [sp-1]; sp--;
+sub					=	<[-<->]						// [sp-2] -= [sp-1]; sp--;
+mul					=   swap dup
+						<3-[->3 pull 1 add <3]>3
+						move_down 2 pop
+
+read				=   [-],>
+write				=   <.>
+
+if_not0_pop_do{x}	=	<[[-]x]
+if_0_pop_do{x}		=   <[>+<[-]] >[-<+>]< [-x]
+pop_if_eq{N,x}		=	<-N[x]
+pop2_if_eq{x}		=	<[-<->]<[x]

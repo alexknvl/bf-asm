@@ -1,0 +1,79 @@
+push 0 //log(x)
+push 0 //c
+read   //x
+
+wnz_begin
+	subc 1
+	
+	pull 1
+	addc 1
+
+	dup
+	subc 1
+	ifz_begin
+		push 0
+		move_down 5
+	ifz_end
+	pop
+
+	dup
+	subc 2
+	ifz_begin
+		push 1
+		move_down 5
+	ifz_end
+	pop
+
+	dup
+	subc 4
+	ifz_begin
+		push 2
+		move_down 5
+	ifz_end
+	pop
+
+	dup
+	subc 8
+	ifz_begin
+		push 3
+		move_down 5
+	ifz_end
+	pop
+
+	dup
+	subc 16
+	ifz_begin
+		push 4
+		move_down 5
+	ifz_end
+	pop
+
+	dup
+	subc 32
+	ifz_begin
+		push 5
+		move_down 5
+	ifz_end
+	pop
+
+	dup
+	subc 64
+	ifz_begin
+		push 6
+		move_down 5
+	ifz_end
+	pop
+
+	dup
+	subc 128
+	ifz_begin
+		push 7
+		move_down 5
+	ifz_end
+	pop
+
+	move_down 2
+wnz_end
+
+pull 2
+write

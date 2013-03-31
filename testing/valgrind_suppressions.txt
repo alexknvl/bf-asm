@@ -1,0 +1,22 @@
+# There are three kinds of suppressions in this file:
+# 1. Third party stuff we have no control over.
+#
+# 2. Intentional unit test errors, stuff that is somehow a false positive
+# in our own code, or stuff that is so trivial it's not worth fixing.
+#
+# 3. Suppressions for real bugs that are not yet fixed.
+# These should all be in our bug tracking system, please put a link to the
+# bug issue into each suppression.
+# Periodically we should sweep this file and the bug tracker clean by
+# running overnight and removing outdated bugs/suppressions.
+#-----------------------------------------------------------------------
+# Writing suppressions:
+#  http://valgrind.org/docs/manual/manual-core.html#manual-core.suppress
+#  http://valgrind.org/docs/manual/mc-manual.html#mc-manual.suppfiles
+
+# 1. Third party stuff we have no control over.
+
+# 2. Intentional unit test errors, stuff that is somehow a false positive
+# in our own code, or stuff that is so trivial it's not worth fixing.
+
+# 3. Suppressions for real bugs that are not yet fixed.

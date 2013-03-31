@@ -1,0 +1,18 @@
+// parameters:
+// 0: a
+// 1: power
+
+push 1 // result
+pull 1 // power
+
+wnz_begin
+	subc 1 // power--
+	pull 1 // result
+	pull 4 // a
+	mul
+	move_down 2 // result = a * result;
+wnz_end
+
+pop
+move_down 2
+pop
